@@ -1,5 +1,8 @@
 # PSR-7 HTTP Message utilities
 
+[![Build Status](https://travis-ci.org/gmponos/http-message-util.svg?branch=master)](https://travis-ci.org/gmponos/http-message-util)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gmponos/monolog-slack/blob/master/LICENSE.md)
+
 This package contains useful utility classes to manipulate PSR-7 Request/Response objects.
 
 **Important note:**
