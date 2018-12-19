@@ -8,16 +8,18 @@ use Psr\Http\Message\RequestInterface;
 
 final class RequestUtil
 {
+    use MessageUtilTrait;
+
     /**
      * @param RequestInterface $request
-     * @param array $json
+     * @param mixed $json
      * @return RequestInterface
      */
-    public static function withJsonBody(RequestInterface $request, array $json): RequestInterface
+    public static function withJsonBody(RequestInterface $request, $json): RequestInterface
     {
         $body = $request->getBody();
         if ($body->isSeekable() === false || $body->isWritable() === false) {
-            throw new \InvalidArgumentException('Can not modify a request with non writable body.');
+            throw new \InvalidArgumentException('Can not modify a request with non seekable/writable body.');
         }
 
         $content = json_encode($json);
@@ -39,7 +41,7 @@ final class RequestUtil
     {
         $body = $request->getBody();
         if ($body->isSeekable() === false || $body->isWritable() === false) {
-            throw new \InvalidArgumentException('Can not modify a request with non writable body.');
+            throw new \InvalidArgumentException('Can not modify a request with non seekable/writable body.');
         }
 
         $content = http_build_query($form, '', '&');
@@ -83,5 +85,16 @@ final class RequestUtil
         }
 
         return $request;
+    }
+
+    public static function toArray(RequestInterface $request): array
+    {
+        return [
+            'method' => $request->getMethod(),
+            'headers' => $request->getHeaders(),
+            'uri' => $request->getRequestTarget(),
+            'version' => 'HTTP/' . $request->getProtocolVersion(),
+            'body' => self::parseBodyToArray($request),
+        ];
     }
 }
