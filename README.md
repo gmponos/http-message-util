@@ -99,3 +99,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 1. Run `composer install` from bash.
 2. Run `composer tests` from bash.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
