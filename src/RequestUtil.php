@@ -35,7 +35,7 @@ final class RequestUtil
      * @param array $form
      * @return RequestInterface
      */
-    public static function withFormBody(RequestInterface $request, array $form): RequestInterface
+    public static function withFormParams(RequestInterface $request, array $form): RequestInterface
     {
         $body = $request->getBody();
         if ($body->isSeekable() === false || $body->isWritable() === false) {
