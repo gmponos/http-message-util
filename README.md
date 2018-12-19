@@ -2,6 +2,12 @@
 
 This package contains useful utility classes to manipulate PSR-7 Request/Response objects.
 
+**Important note:**
+
+- This package is still in version 0.x.x. According to [semantic versioning](https://semver.org/#spec-item-4) major changes can 
+occur while we are still on 0.x.x version. If you use the package for a project that is in production please lock 
+this package in your composer to a specific version like ^0.3.0.
+
 ## Description
 
 Let's say that you have a class that sends to an API a JSON body.
