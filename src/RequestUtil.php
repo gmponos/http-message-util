@@ -8,6 +8,11 @@ use Psr\Http\Message\RequestInterface;
 
 final class RequestUtil
 {
+    /**
+     * @param RequestInterface $request
+     * @param array $json
+     * @return RequestInterface
+     */
     public static function withJsonBody(RequestInterface $request, array $json): RequestInterface
     {
         $body = $request->getBody();
@@ -25,6 +30,11 @@ final class RequestUtil
         return $request->withHeader('Content-Type', 'application/json');
     }
 
+    /**
+     * @param RequestInterface $request
+     * @param array $form
+     * @return RequestInterface
+     */
     public static function withFormBody(RequestInterface $request, array $form): RequestInterface
     {
         $body = $request->getBody();
@@ -50,12 +60,22 @@ final class RequestUtil
         return $request->withUri($request->getUri()->withQuery($query));
     }
 
+    /**
+     * @param RequestInterface $request
+     * @param array $query
+     * @return RequestInterface
+     */
     public static function withQueryOptions(RequestInterface $request, array $query): RequestInterface
     {
         $query = http_build_query($query, null, '&', PHP_QUERY_RFC3986);
         return $request->withUri($request->getUri()->withQuery($query));
     }
 
+    /**
+     * @param RequestInterface $request
+     * @param array $headers
+     * @return RequestInterface
+     */
     public static function withHeaders(RequestInterface $request, array $headers): RequestInterface
     {
         foreach ($headers as $header => $value) {
