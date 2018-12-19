@@ -82,7 +82,7 @@ class SendNotification
 You can install this package through composer
 
 ```
-$ composer require http-message-util/http-message-util
+$ composer require gmponos/http-message-util
 ```
 
 ## Changelog
