@@ -22,7 +22,7 @@ final class RequestUtil
 
         $content = json_encode($json);
         if (JSON_ERROR_NONE !== json_last_error()) {
-            throw new \InvalidArgumentException('Json encoding failed: ' . json_last_error());
+            throw new \InvalidArgumentException('Json encoding failed: ' . json_last_error_msg());
         }
 
         $body->write($content);

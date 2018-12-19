@@ -10,7 +10,7 @@
         "psr7",
         "http"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/gmponos/http-message-util",
     "license": "MIT",
     "authors": [
         {
