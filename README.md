@@ -1,10 +1,11 @@
-# PSR-7 HTTP Message Utilities
+# PSR-7 HTTP Message utilities
 
 This package contains useful utility classes to manipulate PSR-7 Request/Response objects.
 
 ## Description
 
-Let's say that you have a class that sends to an API that accepts a JSON body following code:
+Let's say that you have a class that sends to an API a JSON body.
+Most probably you would have the following code:
 
 **Before** 
 
@@ -23,7 +24,7 @@ class SendNotification
         $this->client = $client;
     }
 
-    public function send(string $email, string $message)
+    public function send(string $email, string $message): \Psr\Http\Message\ResponseInterface
     {
         $request = $this->requestFactory->create('GET', 'http://www.testurl.com');
         $body = $request->getBody();
@@ -39,7 +40,7 @@ class SendNotification
         $body->write($content);
         $body->rewind();
         $request = $request->withHeader('Content-Type', 'application/json');
-        $this->client->sendRequest($request);
+        return $this->client->sendRequest($request);
     }
 }
 ```
@@ -64,14 +65,14 @@ class SendNotification
         $this->client = $client;
     }
 
-    public function send(string $email, string $message)
+    public function send(string $email, string $message): \Psr\Http\Message\ResponseInterface
     {
         $request = $this->requestFactory->create('GET', 'http://www.testurl.com');
         $request = RequestUtil::withJsonBody($request, [
             'email' => $email,
             'message' => $message
         ]);
-        $this->client->sendRequest($request);
+        return $this->client->sendRequest($request);
     }
 }
 ```
