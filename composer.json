@@ -1,5 +1,5 @@
 {
-    "name": "gmponos/http-message-util",
+    "name": "http-message-util/http-message-util",
     "description": "A set o utilities for manipulating PSR-7 HTTP Requests/Responses",
     "license": "MIT",
     "authors": [
