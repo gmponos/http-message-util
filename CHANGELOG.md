@@ -4,7 +4,13 @@ All notable changes to `gmponos/http-message-util` will be documented in this fi
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## 0.1.0 - 2018-12-19 
+## v0.2.0 - 2019-01-06
+
+### Added
+- Added `toArray` function for request and response object.
+- Added a `ResponseUtil`
+
+## v0.1.0 - 2018-12-19 
 
 ### Added
 - Created class `HttpMessageUtil\RequestUtil`
